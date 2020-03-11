@@ -17,7 +17,7 @@ class Form extends Component{
     }
 
     render(){
-        const {name, tel_no, handleName} = this.props;
+        const {name, tel_no, handleName, book, onRemove, onUpdate} = this.props;
 
         return(
             <>
@@ -27,7 +27,11 @@ class Form extends Component{
                         <input value={tel_no} name="tel_no" onChange={handleName}></input>
                         <button type="submit">add</button>
                     </form>
-                    <PhoneInfoList data={this.props.book}/>
+                    <PhoneInfoList 
+                        data={book}
+                        onRemove={onRemove}
+                        onUpdate={onUpdate}
+                    />
                 </div>
                 {/* <div>
                     {name} {tel_no}

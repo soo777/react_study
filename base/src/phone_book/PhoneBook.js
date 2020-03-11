@@ -31,7 +31,22 @@ class PhoneBook extends Component {
             book: book.concat({id: this.id++, name, tel_no })
         })
     }
+
+    handleRemove = (id) => {
+        const { book } = this.state;
+        this.setState({
+            book : book.filter(info => info.id !== id)
+        })
+    }
     
+    handleUpdate = (id, data) => {
+        const {book} = this.state;
+        this.setState({
+            book : book.map(
+                info => id === info.id ? {...info, ...data} : info
+            )
+        })
+    }
 
     render(){
         const {name, tel_no, book} = this.state;
@@ -48,6 +63,8 @@ class PhoneBook extends Component {
                         handleName={this.handleName}
                         book={book}
                         handleCreate={this.handleCreate}
+                        onRemove={this.handleRemove}
+                        onUpdate={this.handleUpdate}
                     />
                 </div>
             </>
