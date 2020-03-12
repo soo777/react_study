@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 // import './App.css';
 
 // import Counter from './counter/Counter';
-import PhoneBook from './phone_book/PhoneBook';
+// import PhoneBook from './phone_book/PhoneBook';
+import PhoneBook2 from './phone_book2/PhoneBook2';
 
 class App extends Component {
   render() {
@@ -10,7 +11,8 @@ class App extends Component {
       <div>
         
         {/* <Counter name="value"/> */}
-        <PhoneBook/>
+        {/* <PhoneBook/> */}
+        <PhoneBook2/>
       </div>
     )
   };
