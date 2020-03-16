@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { observer, inject } from "mobx-react";
+import { Button } from 'semantic-ui-react';
+import "semantic-ui-css/semantic.min.css";
 
 @inject("yourstore")
 @observer
@@ -12,6 +14,7 @@ class App extends Component {
           <button onClick={this.props.yourstore.changeToWorld}>
             Change to world
           </button>
+          <Button>Click Click</Button>
         </div>
       </div>
     );
