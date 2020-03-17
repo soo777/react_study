@@ -5,11 +5,16 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from "mobx-react";
 import YourStore from "./stores/YourStore";
+import MemberStore from './member/store/MemberStore';
 
 const yourstore = new YourStore();
+const memberstore = new MemberStore();
 
 const RenderComponent = () => (
-    <Provider yourstore={yourstore}>
+    <Provider 
+      yourstore={yourstore}
+      memberStore={memberstore}
+    >
       <App />
     </Provider>
   );
