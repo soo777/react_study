@@ -1,14 +1,17 @@
 import {observable, action, computed} from 'mobx';
-import mebmerRepository from '../repository/memberRepository';
+import memberRepository from '../repository/memberRepository';
 
-export  default class MemberStore{
+export default class MemberStore{
 
     @observable
     member;
 
+    @observable
+    members = [];
+
     @action
     findAllMembers(){
-        this.member =  mebmerRepository.findAllMembers();
+        this.members =  memberRepository.findAllMembers();
     }
 }
 

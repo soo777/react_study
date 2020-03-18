@@ -3,7 +3,9 @@ import data from './data';
 class MemberRepository{
 
     findAllMembers(){
-        return ['All', ...new Set(data.map(member => member.name))];
+        console.log(data);
+        // return ['All', ...new Set(data.map(member => member.name))];
+        return data;
     }
 }
 
