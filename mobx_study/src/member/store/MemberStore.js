@@ -9,9 +9,22 @@ export default class MemberStore{
     @observable
     members = [];
 
+    @observable
+    name_input ='';
+
     @action
     findAllMembers(){
         this.members =  memberRepository.findAllMembers();
+    }
+
+    @action
+    changeNameInput(name){
+        this.name_input = name;
+    }
+
+    @action
+    findByName(name){
+        this.members = memberRepository.findByName(name);
     }
 }
 

@@ -1,5 +1,11 @@
 const Member = [
     {
+        "empNumber": "A0000",
+        "name": "aaa",
+        "hireDate": "2015-05-07",
+        "department": "Sales"
+    },
+    {
         "empNumber": "A0001",
         "name": "jkkim",
         "hireDate": "2015-05-07",

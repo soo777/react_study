@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <div>
+        {/* <div>
           <div>value = {this.props.yourstore.yourStore}</div>
           <div>
             <button onClick={this.props.yourstore.changeToWorld}>
@@ -18,7 +18,7 @@ class App extends Component {
             </button>
             <Button>Click Click</Button>
           </div>
-        </div>
+        </div> */}
         <div>
           <MemberListContainer/>
         </div>

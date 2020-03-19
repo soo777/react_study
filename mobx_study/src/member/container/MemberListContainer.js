@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {observer, inject } from 'mobx-react';
-import { List, Table, Label, Menu, Icon } from 'semantic-ui-react';
+import { List, Table, Label, Menu, Icon, Input, Button } from 'semantic-ui-react';
 
 @inject("memberStore")
 @observer
@@ -9,15 +9,28 @@ class MemeberListContainer extends Component {
     componentDidMount(){
         this.props.memberStore.findAllMembers();
     }
-
+    
     render(){
         const {memberStore} = this.props;
-        const a = memberStore.members;
-        console.log(a);
 
         const tableStyle ={
             width: '50%'
         };
+
+        const a = memberStore.members;
+        // console.log(a);
+
+        const changeNameInput = (e) => {
+            console.log(e.target.value);
+        
+            memberStore.changeNameInput(e.target.value);
+        };
+
+        const findByName = () => {
+            console.log(memberStore.name_input);
+
+            memberStore.findByName(memberStore.name_input);
+        }
         
         const memberList = memberStore.members.map( member=> 
             <List.Item key={member.name}>         
@@ -31,7 +44,7 @@ class MemeberListContainer extends Component {
             </List.Item>
         )
 
-        const tr = memberStore.members.map(member =>
+        const table = memberStore.members.map(member =>
             <Table.Row key={member.name}>
                 <Table.Cell>{member.empNumber}</Table.Cell>
                 <Table.Cell>{member.name}</Table.Cell>
@@ -43,8 +56,14 @@ class MemeberListContainer extends Component {
             <div>
                 {/* <div>1</div> */}
                 <List>
-                    {memberList}
+                    {/* {memberList} */}
                 </List>
+
+                <Input placeholder='Name...' onChange={changeNameInput} />
+                <Button onClick={findByName}>Search</Button>
+                <div>
+                    {memberStore.name_input}
+                </div>
 
                 <div>
                     <Table celled style={tableStyle}>
@@ -57,22 +76,7 @@ class MemeberListContainer extends Component {
                         </Table.Header>
 
                         <Table.Body>
-                            {tr}
-                            {/* <Table.Row>
-                                <Table.Cell>Cell1</Table.Cell>
-                                <Table.Cell>Cell2</Table.Cell>
-                                <Table.Cell>Cell3</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell>Cell</Table.Cell>
-                                <Table.Cell>Cell</Table.Cell>
-                                <Table.Cell>Cell</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell>Cell</Table.Cell>
-                                <Table.Cell>Cell</Table.Cell>
-                                <Table.Cell>Cell</Table.Cell>
-                            </Table.Row> */}
+                            {table}
                         </Table.Body>
 
                         {/* <Table.Footer>
