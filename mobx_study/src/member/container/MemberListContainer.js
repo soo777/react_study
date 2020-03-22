@@ -17,7 +17,7 @@ class MemeberListContainer extends Component {
             width: '50%'
         };
 
-        const a = memberStore.members;
+        // const a = memberStore.members;
         // console.log(a);
 
         const changeNameInput = (e) => {
@@ -31,7 +31,11 @@ class MemeberListContainer extends Component {
 
             memberStore.findByName(memberStore.name_input);
         }
-        
+
+        const deleteMember = (member) => {
+            memberStore.deleteMember(member);
+        }
+ 
         const memberList = memberStore.members.map( member=> 
             <List.Item key={member.name}>         
                 <List.Header>
@@ -49,6 +53,9 @@ class MemeberListContainer extends Component {
                 <Table.Cell>{member.empNumber}</Table.Cell>
                 <Table.Cell>{member.name}</Table.Cell>
                 <Table.Cell>{member.department}</Table.Cell>
+                <Table.Cell><Button onClick={() =>
+                    deleteMember(member)
+                }>Delete</Button></Table.Cell>
             </Table.Row>
         )
 
@@ -72,6 +79,7 @@ class MemeberListContainer extends Component {
                             <Table.HeaderCell>EmpNumber</Table.HeaderCell>
                             <Table.HeaderCell>Name</Table.HeaderCell>
                             <Table.HeaderCell>Department</Table.HeaderCell>
+                            <Table.HeaderCell></Table.HeaderCell>
                         </Table.Row>
                         </Table.Header>
 

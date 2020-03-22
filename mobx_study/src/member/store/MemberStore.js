@@ -26,6 +26,11 @@ export default class MemberStore{
     findByName(name){
         this.members = memberRepository.findByName(name);
     }
+
+    @action
+    deleteMember(data) {
+        this.members = memberRepository.deleteMember(data, this.members);
+    }
 }
 
 // export default new MemberStore();
