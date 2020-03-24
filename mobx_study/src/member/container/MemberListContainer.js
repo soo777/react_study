@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {observer, inject } from 'mobx-react';
 import { List, Table, Label, Menu, Icon, Input, Button } from 'semantic-ui-react';
+import AddModal from '../view/AddModal';
 
 @inject("memberStore")
 @observer
@@ -8,6 +9,12 @@ class MemeberListContainer extends Component {
 
     componentDidMount(){
         this.props.memberStore.findAllMembers();
+        this.addMember = this.props.memberStore.addMember();
+    }
+
+    addMember = () => {
+        console.log('a');
+        // this.props.memberStore.addMember();
     }
     
     render(){
@@ -17,13 +24,16 @@ class MemeberListContainer extends Component {
             width: '50%'
         };
 
-        // const a = memberStore.members;
-        // console.log(a);
-
         const changeNameInput = (e) => {
             console.log(e.target.value);
         
             memberStore.changeNameInput(e.target.value);
+        };
+
+        const changeDepartmentInput = (e) => {
+            console.log(e.target.value);
+        
+            memberStore.changeDepartmentInput(e.target.value);
         };
 
         const findByName = () => {
@@ -35,18 +45,6 @@ class MemeberListContainer extends Component {
         const deleteMember = (member) => {
             memberStore.deleteMember(member);
         }
- 
-        const memberList = memberStore.members.map( member=> 
-            <List.Item key={member.name}>         
-                <List.Header>
-                    {member.name}
-                    <br/>
-                    {member.department}
-                    <br/>
-                    <br/>
-                </List.Header>
-            </List.Item>
-        )
 
         const table = memberStore.members.map(member =>
             <Table.Row key={member.name}>
@@ -61,13 +59,15 @@ class MemeberListContainer extends Component {
 
         return(
             <div>
-                {/* <div>1</div> */}
-                <List>
-                    {/* {memberList} */}
-                </List>
-
                 <Input placeholder='Name...' onChange={changeNameInput} />
                 <Button onClick={findByName}>Search</Button>
+                <AddModal
+                    name={memberStore.name_input}
+                    department={memberStore.department}
+                    changeNameInput={changeNameInput}
+                    changeDepartmentInput={changeDepartmentInput}
+                    addMember={this.addMember}
+                />
                 <div>
                     {memberStore.name_input}
                 </div>

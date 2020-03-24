@@ -12,6 +12,9 @@ export default class MemberStore{
     @observable
     name_input ='';
 
+    @observable
+    department ='department';
+
     @action
     findAllMembers(){
         this.members =  memberRepository.findAllMembers();
@@ -20,6 +23,16 @@ export default class MemberStore{
     @action
     changeNameInput(name){
         this.name_input = name;
+    }
+
+    @action
+    changeDepartmentInput(department){
+        this.department = department;
+    }
+
+    @action
+    addMember(){
+        console.log('add member');
     }
 
     @action
