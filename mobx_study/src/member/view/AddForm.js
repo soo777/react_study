@@ -10,7 +10,7 @@ class AddForm extends Component {
     render(){
         const formStyle = {padding:'20px'};
 
-        const {name_input, department, changeNameInput, changeDepartmentInput} = this.props;
+        const {name, department, changeNameInput, changeDepartmentInput} = this.props;
 
         return(
             <>

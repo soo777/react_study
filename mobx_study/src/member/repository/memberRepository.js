@@ -8,11 +8,11 @@ class MemberRepository{
         return data;
     }
 
-    findByName(name){
+    findByName(name, members){
         if(name === ''){
             return data;
         }
-        return data.filter(data => data.name == name);
+        return members.filter(data => data.name == name);
     }
 
     deleteMember(data, members){
@@ -25,6 +25,11 @@ class MemberRepository{
         // console.log(index);
 
         // return data.splice(index,1);
+    }
+
+    addMember(name, department, members){
+        console.log(data);
+        return members.concat({...members, name:name, department:department, empNumber:'1234'});
     }
 }
 

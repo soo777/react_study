@@ -9,14 +9,13 @@ class MemeberListContainer extends Component {
 
     componentDidMount(){
         this.props.memberStore.findAllMembers();
-        this.addMember = this.props.memberStore.addMember();
     }
 
-    addMember = () => {
-        console.log('a');
-        // this.props.memberStore.addMember();
+    addMember = (name, department) => {
+        console.log("mebmerListContainer add click");
+        this.props.memberStore.addMember(name, department);
     }
-    
+
     render(){
         const {memberStore} = this.props;
 
@@ -24,16 +23,16 @@ class MemeberListContainer extends Component {
             width: '50%'
         };
 
-        const changeNameInput = (e) => {
-            console.log(e.target.value);
-        
-            memberStore.changeNameInput(e.target.value);
+        const changeName = (e) => {
+            memberStore.changeName(e.target.value);
         };
 
-        const changeDepartmentInput = (e) => {
-            console.log(e.target.value);
-        
-            memberStore.changeDepartmentInput(e.target.value);
+        const changeNameForm = (e) => {
+            memberStore.changeNameForm(e.target.value);
+        };
+
+        const changeDepartmentForm = (e) => {
+            memberStore.changeDepartmentForm(e.target.value);
         };
 
         const findByName = () => {
@@ -59,13 +58,13 @@ class MemeberListContainer extends Component {
 
         return(
             <div>
-                <Input placeholder='Name...' onChange={changeNameInput} />
+                <Input placeholder='Name...' onChange={changeName} />
                 <Button onClick={findByName}>Search</Button>
                 <AddModal
-                    name={memberStore.name_input}
+                    name={memberStore.name}
                     department={memberStore.department}
-                    changeNameInput={changeNameInput}
-                    changeDepartmentInput={changeDepartmentInput}
+                    changeNameInput={changeNameForm}
+                    changeDepartmentInput={changeDepartmentForm}
                     addMember={this.addMember}
                 />
                 <div>

@@ -13,6 +13,9 @@ export default class MemberStore{
     name_input ='';
 
     @observable
+    name ='';
+
+    @observable
     department ='department';
 
     @action
@@ -21,23 +24,32 @@ export default class MemberStore{
     }
 
     @action
-    changeNameInput(name){
+    changeName(name){
         this.name_input = name;
     }
 
     @action
-    changeDepartmentInput(department){
+    changeNameForm(name){
+        this.name = name;
+    }
+
+    @action
+    changeDepartmentForm(department){
+        console.log(department);
         this.department = department;
     }
 
     @action
-    addMember(){
+    addMember(name, department){
         console.log('add member');
+        console.log(name);
+        console.log(department);
+        this.members = memberRepository.addMember(name, department, this.members);
     }
 
     @action
     findByName(name){
-        this.members = memberRepository.findByName(name);
+        this.members = memberRepository.findByName(name, this.members);
     }
 
     @action

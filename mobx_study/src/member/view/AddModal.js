@@ -9,20 +9,20 @@ class AddModal extends Component {
     }
     
     render(){
-        const {name_input, department, changeNameInput, changeDepartmentInput, addMember} = this.props;
+        const {name, department, changeNameInput, changeDepartmentInput, addMember} = this.props;
         return(
             <Modal
                 trigger={<Button>Add</Button>}
                 header='Add'
                 content={
                     <AddForm
-                        name_input={name_input}
+                        name={name}
                         department={department}
                         changeNameInput={changeNameInput}
                         changeDepartmentInput={changeDepartmentInput}
                     />
                     }
-                actions={[{ key: 'done', content: 'Done', positive: true, onClick: {addMember}}]}
+                actions={[{ key: 'done', content: 'Done', positive: true, onClick: () => {addMember(name, department)}}]}
             />
         )
     }
