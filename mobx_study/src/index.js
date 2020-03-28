@@ -6,14 +6,17 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from "mobx-react";
 import YourStore from "./stores/YourStore";
 import MemberStore from './member/store/MemberStore';
+import LectureStore from './lecture/store/LectureStore';
 
 const yourstore = new YourStore();
 const memberstore = new MemberStore();
+const lecturestore = new LectureStore();
 
 const RenderComponent = () => (
     <Provider 
       yourstore={yourstore}
       memberStore={memberstore}
+      lectureStore={lecturestore}
     >
       <App />
     </Provider>
