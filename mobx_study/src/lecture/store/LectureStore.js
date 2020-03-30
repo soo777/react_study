@@ -1,5 +1,5 @@
 import {observable, action, computed} from 'mobx';
-import {lectureRepository} from '../repository/LectureRepository';
+import lectureRepository from '../repository/LectureRepository';
 
 class LectureStore{
 
@@ -9,7 +9,12 @@ class LectureStore{
     @observable
     lectureList = [];
 
+    @action
+    findAllLecture(){
+        this.lectureList =  lectureRepository.findAllLecture();
+        console.log(this.lectureList);
 
+    }
 }
 
 export default LectureStore;

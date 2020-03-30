@@ -6,7 +6,7 @@ import {observer, inject} from 'mobx-react';
 class LectureListContainer extends Component {
 
     componentDidMount(){
-
+        this.props.lectureStore.findAllLecture();
     }
 
     render(){
