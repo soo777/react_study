@@ -1,7 +1,11 @@
-import {observable, action, computed} from 'mobx';
+import {observable, action, toJS} from 'mobx';
 import lectureRepository from '../repository/LectureRepository';
+import * as autoBind from 'auto-bind';
 
 class LectureStore{
+    constructor(){
+        autoBind(this); 
+    }
 
     @observable
     lecture;
@@ -11,9 +15,11 @@ class LectureStore{
 
     @action
     findAllLecture(){
-        this.lectureList =  lectureRepository.findAllLecture();
-        console.log(this.lectureList);
-
+        lectureRepository.findAllLecture().then(data => {
+            console.log(data);
+            console.log(data.data.object.data)
+            this.lectureList = data.data.object.data;
+        });
     }
 }
 

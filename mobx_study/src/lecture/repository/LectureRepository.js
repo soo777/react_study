@@ -1,11 +1,12 @@
 import axios from "axios";
+import {toJS} from 'mobx';
 
 
 class LectureRepository{
 
-    findAllLecture(){
-        return axios.post('/api/lecture/list')
-                .then(({data}) => data); 
+    findAllLecture = async () =>  {
+        let data = await axios.post('/api/lecture/list');
+        return data;
     }
 }
 
