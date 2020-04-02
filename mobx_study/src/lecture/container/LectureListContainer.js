@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
 import {observer, inject} from 'mobx-react';
 import { Table, Button } from 'semantic-ui-react';
+import * as autoBind from 'auto-bind';
 
 @inject("lectureStore")
 @observer
 class LectureListContainer extends Component {
+    constructor(props){
+        super(props);
+
+        autoBind(this); 
+    }
 
     componentDidMount(){
         this.props.lectureStore.findAllLecture();
@@ -35,14 +41,18 @@ class LectureListContainer extends Component {
         )
         
         return(
-            <>
+            <>  
+                <div>
+                    Lecture
+                </div>
+                <Button onClick={findByName}>Search</Button>
                 <div>
                     <Table celled style={tableStyle}>
                         <Table.Header>
                         <Table.Row>
-                            <Table.HeaderCell>EmpNumber</Table.HeaderCell>
-                            <Table.HeaderCell>Name</Table.HeaderCell>
-                            <Table.HeaderCell>Department</Table.HeaderCell>
+                            <Table.HeaderCell>No</Table.HeaderCell>
+                            <Table.HeaderCell>LectureName</Table.HeaderCell>
+                            <Table.HeaderCell>Grade</Table.HeaderCell>
                             <Table.HeaderCell></Table.HeaderCell>
                         </Table.Row>
                         </Table.Header>
@@ -52,11 +62,6 @@ class LectureListContainer extends Component {
                         </Table.Body>
                     </Table>
                 </div>
-
-                <div>
-                    Lecture
-                </div>
-                <Button onClick={findByName}>Search</Button>
             </>
         );
     }
