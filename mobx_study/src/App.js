@@ -21,14 +21,10 @@ class App extends Component {
             <Button>Click Click</Button>
           </div>
         </div> */}
-        {/* <div>
-          <MemberListContainer/>
-        </div> */}
-        {/* <div>
-          <LectureListContainer/>
-        </div> */}
         <div>
-          <RouteSample/>
+          {/* <MemberListContainer/> */}
+          <LectureListContainer/>
+          {/* <RouteSample/> */}
         </div>
       </>
     );
