@@ -5,6 +5,7 @@ import "semantic-ui-css/semantic.min.css";
 import MemberListContainer from './member/container/MemberListContainer';
 import LectureListContainer from './lecture/container/LectureListContainer';
 import RouteSample from './router/routeSample';
+import SassComponent from "./sass/SassComponent";
 
 @inject("yourstore")
 @observer
@@ -23,7 +24,8 @@ class App extends Component {
         </div> */}
         <div>
           {/* <MemberListContainer/> */}
-          <LectureListContainer/>
+          {/*<LectureListContainer/>*/}
+          <SassComponent/>
           {/* <RouteSample/> */}
         </div>
       </>
