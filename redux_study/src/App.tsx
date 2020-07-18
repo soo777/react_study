@@ -1,18 +1,28 @@
 import React from 'react';
 import './App.css';
-import Counter from './components/Counter';
-import Info from "./components/Info";
-import ContextSample from "./components/ContextSample";
-import Average from "./components/Average";
+import Counter from './hooks/Counter';
+import Info from "./hooks/Info";
+import ContextSample from "./hooks/ContextSample";
+import Average from "./hooks/Average";
+import Counter1 from "./components/Counter1";
+import MyForm from "./components/MyForm";
 
 function App() {
+  const onSubmit = (form: { name: string; description: string }) => {
+    console.log(form);
+  };
+
   return (
       <>
-        <Counter/>
-        <Info/>
-        <ContextSample/>
-        <Average/>
+        {/*<Counter1/>*/}
+        {/*<Info/>*/}
+        {/*<ContextSample/>*/}
+        {/*<Average/>*/}
+
+        <Counter1/>
+        <MyForm onSubmit={onSubmit}/>
       </>
+
   )
 }
 
