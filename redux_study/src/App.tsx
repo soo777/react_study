@@ -6,6 +6,7 @@ import ContextSample from "./hooks/ContextSample";
 import Average from "./hooks/Average";
 import Counter1 from "./components/Counter1";
 import MyForm from "./components/MyForm";
+import ReducerSample from "./components/ReducerSample";
 
 function App() {
   const onSubmit = (form: { name: string; description: string }) => {
@@ -21,6 +22,7 @@ function App() {
 
         <Counter1/>
         <MyForm onSubmit={onSubmit}/>
+        <ReducerSample/>
       </>
 
   )

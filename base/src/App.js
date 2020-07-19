@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import './App.css';
 
-// import Counter from './counter/Counter';
+// import Counter1 from './counter/Counter1';
 // import PhoneBook from './phone_book/PhoneBook';
 import PhoneBook2 from './phone_book2/PhoneBook2';
 
@@ -10,7 +10,7 @@ class App extends Component {
     return(
       <div>
         
-        {/* <Counter name="value"/> */}
+        {/* <Counter1 name="value"/> */}
         {/* <PhoneBook/> */}
         <PhoneBook2/>
       </div>
