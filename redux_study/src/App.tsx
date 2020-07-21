@@ -8,6 +8,7 @@ import Counter1 from "./components/Counter1";
 import MyForm from "./components/MyForm";
 import ReducerSample from "./components/ReducerSample";
 import Counter2 from "./components/Counter2";
+import TodoInsert from "./components/TodoInsert";
 
 function App() {
   const onSubmit = (form: { name: string; description: string }) => {
@@ -25,9 +26,10 @@ function App() {
         {/*<MyForm onSubmit={onSubmit}/>*/}
         {/*<ReducerSample/>*/}
 
-        <Counter2/>
-      </>
+        {/*<Counter2/>*/}
 
+        <TodoInsert />
+      </>
   )
 }
 
