@@ -1,25 +1,25 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
-import Header from "./components/Header";
 import React from "react";
 import Layout from "./components/Layout";
 
-const Home: NextPage = () => {
-  return (
-    // <div>
-    //   <div>
-    //     <Header />
-    //     <Link href="/about">
-    //       <button>Got to About page</button>
-    //     </Link>
-    //   </div>
-    //
-    // </div>
+const PostLink = (props:any) => (
+  <li>
+    <Link href={`/post?title=${props.title}`}>
+      <a>{props.title}</a>
+    </Link>
+  </li>
+)
 
+const Home: NextPage = () => (
     <Layout>
-      <p>This is the about apge</p>
+      <h1>My Blog</h1>
+      <ul>
+        <PostLink title="Hello Next.js"/>
+        <PostLink title="Learn Next.js is awesome"/>
+        <PostLink title="Deploy apps with Zeit"/>
+      </ul>
     </Layout>
-  )
-}
+)
 
 export default Home
