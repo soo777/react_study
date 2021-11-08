@@ -6,7 +6,7 @@ import Layout from "./components/Layout";
 const PostLink = (props:any) => (
   <li>
     {/*<Link as={`/p/[post]`} href={`/post?title=${props.title}`}>*/}
-      <Link href={`/p/[post]`} as={`/p/${props.title}`}>
+    <Link href={`/p/[post]`} as={`/p/${props.title}`}>
       <a>{props.title}</a>
     </Link>
   </li>

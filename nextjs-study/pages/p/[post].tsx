@@ -6,7 +6,7 @@ const Post = () => {
 
   return (
     <Layout>
-      <p>Hello, my name is {router.query.title}. I use Next.js</p>
+      <p>Hello, my name is {router.query.post}. I use Next.js</p>
     </Layout>
   );
 }
