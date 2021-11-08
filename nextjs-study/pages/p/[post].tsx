@@ -1,4 +1,4 @@
-import Layout from "./components/Layout";
+import Layout from "../components/Layout";
 import { useRouter } from "next/router";
 
 const Post = () => {
@@ -6,10 +6,9 @@ const Post = () => {
 
   return (
     <Layout>
-      <h1>{router.query.title}</h1>
-      <p>This is the blog post content.</p>
+      <p>Hello, my name is {router.query.title}. I use Next.js</p>
     </Layout>
-  )
+  );
 }
 
 export default Post
