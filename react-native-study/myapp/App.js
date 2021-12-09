@@ -18,13 +18,16 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import TodoList from './components/TodoList';
+import TodoInsert from './components/TodoInsert';
 
 const App: () => Node = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.appTitle}>Hello TodoList</Text>
       <View style={styles.card}>
-        <TextInput style={styles.input} placeholder="Add an item!" />
+        <TodoInsert />
+        <TodoList />
       </View>
     </SafeAreaView>
   );
